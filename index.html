@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <head>
     <title>Tarefas</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            border: 10px solid green;
+            min-height: 100vh;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            
+
+        }
+
+        header{
+            background-color: green;
+            color: white;
+        }
+        main{
+            flex:auto;
+            border: solid pink;
+        }
+
+        footer{
+            border: solid blue;
+            display: flex;
+        }
+
+        footer input{
+            flex:auto;
+            padding: 5px;
+        }
+    </style>
 
 </head>
+<header>
+    <h1>Lista de Tarefas</h1>
+</header>
 <body>
-<h1>Lista de Tarefas</h1>
-<ul></ul>
-<input>
-<button onclick="add()">adicionar</button>
+    <main>
+        <ul></ul> 
+    </main>
+    <footer>
+        <input>
+        <button onclick="add()">adicionar</button>  
+    </footer>
 <script>
     //estado da aplicação
     const tarefas = ["Estudar HTML","Estudar CSS", "Estudar JS"]
