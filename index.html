@@ -1,85 +1,95 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Tarefas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         *{
-            margin: 0;
             box-sizing: border-box;
+            margin: 0;
+            border-radius: 5px;
+            background-color: #91F2E9;
+            
         }
         body{
-            border: 10px solid green;
-            min-height: 100vh;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
             display: flex;
             flex-direction: column;
-            background-color: green;
-
+            min-height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            border: solid 20px #2A8C82;
+            color: #260101;
+            
         }
-
         header{
-            color: lightgreen;
+            border: solid #41BFB3;
             text-align: center;
-        }
-        main{
-            flex:auto;
-            background-color: lightgreen;
-            padding: 20px;
+            background-color: #91F2E9;
             border-radius: 5px;
         }
-        main ul{
-            padding: 0;
-            list-style: none;
+        main{
+            border: solid #41BFB3;
+            flex: auto;
+            background-color: #91F2E9;
+            
         }
-        main li{
-            border-bottom: 1px solid green;
+        ul{
+            margin-top: 10px;
         }
-
         footer{
+            border:  solid 20px #41BFB3;
             display: flex;
-        }
 
+        }
         footer input{
-            flex:auto;
-            padding: 5px;
+            flex: auto;
         }
+        
     </style>
-
 </head>
-<header>
-    <h1>Lista de Tarefas</h1>
-</header>
+
 <body>
-    <main>
-        <ul></ul> 
-    </main>
-    <footer>
-        <input>
-        <button onclick="add()">adicionar</button>  
-    </footer>
-<script>
-    //estado da aplicação
-    const tarefas = ["Estudar HTML","Estudar CSS", "Estudar JS"]
+        <header>
+            <h1>Lista de tarefas</h1>
+        </header>
+        <main>
+            <ul></ul>
+        </main>
+        <footer>
+            <input>
+            <button onclick="add()">Enviar</button>
+        </footer>
 
-    function add(){
-        const input = document.querySelector("input")
-        const tarefa = input.value
-        tarefas.push(tarefa)
-        input.value = ""
+    
+
+    <script>
+        const tarefas = ['Estudar HTML', 'Estudar CSS', 'Estudar JS']
+
+
+        function add() {
+            const input = document.querySelector('input')
+            const tarefa = input.value
+            tarefas.push(tarefa)
+            input.value = ''
+            render()
+        }
+
+        function render() {
+            const ul = document.querySelector('ul')
+            ul.innerHTML = null
+            tarefas.forEach(function (tarefa) {
+                const li = document.createElement('li')
+                li.innerText = tarefa
+
+                ul.appendChild(li)
+
+            })
+        }
         render()
-    }
-
-    function render(){
-        const ul = document.querySelector("ul")
-        ul.innerHTML = null
-        tarefas.forEach(function(tarefa){
-            const li = document.createElement("li")
-        li.innerText = tarefa
-        ul.appendChild(li)
-
-        })
-
-    }
-    render()
-</script>
+    </script>
 </body>
+
+</html>
