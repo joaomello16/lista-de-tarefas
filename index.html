@@ -5,91 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
-            border-radius: 5px;
-            background-color: #91F2E9;
-            
-        }
-        body{
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            box-sizing: border-box;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            border: solid 20px #2A8C82;
-            color: #260101;
-            
-        }
-        header{
-            border: solid #41BFB3;
-            text-align: center;
-            background-color: #91F2E9;
-            border-radius: 5px;
-        }
-        main{
-            border: solid #41BFB3;
-            flex: auto;
-            background-color: #91F2E9;
-            
-        }
-        ul{
-            margin-top: 10px;
-        }
-        footer{
-            border:  solid 20px #41BFB3;
-            display: flex;
-
-        }
-        footer input{
-            flex: auto;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="./styles.css"> 
 </head>
 
 <body>
         <header>
             <h1>Lista de tarefas</h1>
+            <div class="c-input">
+                <input>
+                <button onclick="add()">Enviar</button>
+            </div>
         </header>
-        <main>
+        <div class="c-lista">
             <ul></ul>
-        </main>
-        <footer>
-            <input>
-            <button onclick="add()">Enviar</button>
-        </footer>
+        </div>
 
     
 
-    <script>
-        const tarefas = ['Estudar HTML', 'Estudar CSS', 'Estudar JS']
-
-
-        function add() {
-            const input = document.querySelector('input')
-            const tarefa = input.value
-            tarefas.push(tarefa)
-            input.value = ''
-            render()
-        }
-
-        function render() {
-            const ul = document.querySelector('ul')
-            ul.innerHTML = null
-            tarefas.forEach(function (tarefa) {
-                const li = document.createElement('li')
-                li.innerText = tarefa
-                console.log(tarefa)
-                ul.appendChild(li)
-
-            })
-        }
-        render()
-    </script>
+    <script src="./script.js"></script>
+       
 </body>
 
 </html>
