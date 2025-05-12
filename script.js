@@ -1,35 +1,34 @@
-let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
-
-function salvar(){
-    localStorage.setItem('tarefas', JSON.stringify(tarefas))
-  }
+const tarefas = []
 
 function add(){
     const input = document.querySelector('input')
     const tarefa = input.value
-    if (tarefa.trim() === '') return
+    if(tarefa.trim() === '')return
     tarefas.push(tarefa)
-    salvar()
+    console.log(tarefas)
+    input.value = ''
     render()
-    input.value =''
+}
+
+function remove(index){
+    tarefas.splice(index , 1)
+    render()
 }
 
 function render(){
     const ul = document.querySelector('ul')
     ul.innerHTML = null
-    
-    tarefas.forEach(function(t){
+    tarefas.forEach(function(t, index){
         const li = document.createElement('li')
         li.innerText = t
         ul.appendChild(li)
-    })
-    
-    
-}
 
-function deleAll(){
-    localStorage.clear()
-    location.reload(true)
+        const button = document.createElement('button')
+        button.innerHTML = 'Excluir'
+        button.onclick = function(){
+            remove(index)
+        }
+        li.appendChild(button)
+    })
 }
-render()
 
