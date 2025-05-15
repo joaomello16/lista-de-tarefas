@@ -3,77 +3,90 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: whitesmoke;
-
 }
+
 header{
-    margin-top: 40px;
-    padding: 20px;
-    background-color: white;
-    width: 80%;
     max-width: 880px;
+    margin-top: 40px;
+    background-color: white;
+    padding: 20px;
     text-align: center;
-    box-shadow: 5px 5px gray;
+    width: 80%;
     border-radius: 5px;
+    box-shadow: 6px 5px 3px 0px gray;
     border: 1px solid black;
 }
 h1{
-    padding: 20px;
+    padding: 15px;
+    font-size: 40px;
 }
 .c-input{
-    display: flex;
     width: 100%;
+    display: flex;
 }
-input{
-    padding: 20px;
+.input-1{
     width: 80%;
-    border-radius: 5px;
-    border: 1px solid gray;
+    padding: 15px;
     outline: none;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 15px;
 }
 .botao{
     width: 20%;
-    margin-left: 15px;
     border: none;
     background: none;
     color: blue;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.8s;
+    margin-left: 15px;
+    padding: 2px;
 }
 .botao:hover{
     background-color: rgb(0, 0, 255, 0.1);
+    border-radius: 5px;
+}
+button{
+    border: none;
+    background: none;
+    width: 20%;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(255, 0, 0, 0.1);
 }
 ul{
+    margin-top: 15px;
     width: 80%;
-    margin-top: 40px;
-    list-style: none;
     max-width: 880px;
 }
 li{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     background-color: white;
     margin-top: 20px;
-    box-shadow: 5px 5px gray;
-    font-size: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 1px gray;
     border-radius: 5px;
+    font-size: 20px;
     border: 1px solid black;
 }
-button{
-    border: none;
-    background: none;
-    color: red;
-    font-size: 20px;
-    margin-right: 40px;
-    padding: 5px;
+span{
+    margin-left: 15px;
+    font-size: 25px;
 }
-button:hover{
-    background-color: rgb(255, 0, 0, 0.5);
-    border-radius: 5px;
+.input-2{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
