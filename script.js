@@ -25,33 +25,51 @@ function render() {
     ul.innerHTML = null
     tarefas.forEach(function (t, index) {
         const li = document.createElement('li')
-        const section = document.createElement('section')
-
+        const section1 = document.createElement('section')
+        const section2 = document.createElement('section')
         const span = document.createElement('span')
-        span.innerText = t.texto
-        atualizarEstilo(span, t.feito)
-
         const checkbox = document.createElement('input')
-        checkbox.type = 'checkbox'
+        const btnExcluir = document.createElement('button')
+        const btnEditar = document.createElement('button')
+
         checkbox.className = 'input-2'
+        btnExcluir.className = 'botao-2'
+        btnEditar.className = 'botao-2'
+        section2.className = 'c-xedit'
+        btnExcluir.innerHTML = '<span class="material-symbols-outlined">delete</span>'
+        btnEditar.innerHTML = '<span class="material-symbols-outlined">edit</span>'
+        checkbox.type = 'checkbox'
+        
+        span.innerText = t.texto
+
         checkbox.checked = t.feito
+        atualizarEstilo(span, t.feito)
+        
         checkbox.onchange = function () {
             t.feito = checkbox.checked
             atualizarEstilo(span, t.feito)
         }
 
 
-        const button = document.createElement('button')
-        button.innerHTML = '<span class="material-symbols-outlined">delete</span>'
-        button.className = 'botao-2'
-        button.onclick = function () {
+        btnExcluir.onclick = function () {
             remove(index)
         }
-        li.appendChild(section)
-        section.appendChild(checkbox)
-        section.appendChild(span)
+
+        btnEditar.onclick = function () {
+            const novoTexto = prompt("Editar tarefa:", t.texto)
+            if (novoTexto !== null && novoTexto.trim() !== "") {
+                t.texto = novoTexto.trim()
+                render()
+            }
+        }
+
+        li.appendChild(section1)
+        li.appendChild(section2)
+        section1.appendChild(checkbox)
+        section1.appendChild(span)
+        section2.appendChild(btnEditar)
+        section2.appendChild(btnExcluir)
         ul.appendChild(li)
-        li.appendChild(button)
     })
 }
 

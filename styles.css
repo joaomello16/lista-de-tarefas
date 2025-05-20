@@ -82,7 +82,7 @@ li{
     font-size: 20px;
     color: red;
     cursor: pointer;
-    margin-right: 60px;
+    
     
 }
 .botao-2 .material-symbols-outlined {
@@ -99,4 +99,7 @@ span{
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+.c-xedit{
+    display: flex;
 }
