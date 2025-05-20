@@ -14,7 +14,7 @@ function remove(index) {
     render()
 }
 
-function atualizarEstilo(span, feito){
+function atualizarEstilo(span, feito) {
     span.style.textDecoration = feito ? 'line-through' : 'none'
     span.style.opacity = feito ? '0.4' : '1'
 }
@@ -39,12 +39,12 @@ function render() {
         btnExcluir.innerHTML = '<span class="material-symbols-outlined">delete</span>'
         btnEditar.innerHTML = '<span class="material-symbols-outlined">edit</span>'
         checkbox.type = 'checkbox'
-        
+
         span.innerText = t.texto
 
         checkbox.checked = t.feito
         atualizarEstilo(span, t.feito)
-        
+
         checkbox.onchange = function () {
             t.feito = checkbox.checked
             atualizarEstilo(span, t.feito)
@@ -56,10 +56,25 @@ function render() {
         }
 
         btnEditar.onclick = function () {
-            const novoTexto = prompt("Editar tarefa:", t.texto)
-            if (novoTexto !== null && novoTexto.trim() !== "") {
-                t.texto = novoTexto.trim()
+            const inputEdit = document.createElement('input')
+            inputEdit.type = 'text'
+            inputEdit.value = t.texto
+            inputEdit.className = 'input-editar'
+            section1.replaceChild(inputEdit, span)
+            inputEdit.focus()
+
+            inputEdit.onblur = function () {
+                const novoTexto = inputEdit.value.trim()
+                if (novoTexto !== "") {
+                    t.texto = novoTexto
+                }
                 render()
+            }
+
+            inputEdit.onkeydown = function (e) {
+                if (e.key === 'Enter') {
+                    inputEdit.blur()
+                }
             }
         }
 
