@@ -1,4 +1,4 @@
-const tarefas = []
+const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
 function add() {
     const input = document.querySelector('input')
@@ -6,19 +6,25 @@ function add() {
     if (tarefa.trim() === '') return
     tarefas.push({ texto: tarefa, feito: false })
     input.value = ''
+    salvar()
     render()
 }
 
 function remove(index) {
     tarefas.splice(index, 1)
+    salvar()
     render()
 }
 
 function atualizarEstilo(span, feito) {
     span.style.textDecoration = feito ? 'line-through' : 'none'
     span.style.opacity = feito ? '0.4' : '1'
+    salvar()
 }
 
+function salvar(){
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+}
 
 function render() {
     const ul = document.querySelector('ul')
@@ -87,4 +93,5 @@ function render() {
         ul.appendChild(li)
     })
 }
+render()
 
